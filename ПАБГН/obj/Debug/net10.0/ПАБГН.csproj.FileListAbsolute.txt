@@ -1,0 +1,14 @@
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\bin\Debug\net10.0\ПАБГН.exe
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\bin\Debug\net10.0\ПАБГН.deps.json
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\bin\Debug\net10.0\ПАБГН.runtimeconfig.json
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\bin\Debug\net10.0\ПАБГН.dll
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\bin\Debug\net10.0\ПАБГН.pdb
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.AssemblyInfo.cs
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.dll
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\refint\ПАБГН.dll
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.pdb
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.genruntimeconfig.cache
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ref\ПАБГН.dll
