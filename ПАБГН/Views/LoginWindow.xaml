@@ -1,0 +1,62 @@
+<Window x:Class="ПАБГН.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вход в систему — автоматизация гостиницы"
+        Height="520" Width="900"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая панель с описанием -->
+        <Border Grid.Column="0" Background="{StaticResource Brush.Side}">
+            <StackPanel VerticalAlignment="Center" Margin="34">
+                <TextBlock Text="🏨" FontSize="44"/>
+                <TextBlock Text="Гостиница «Приморская»"
+                           Foreground="White" FontSize="21" FontWeight="SemiBold"
+                           Margin="0,14,0,0" TextWrapping="Wrap"/>
+                <TextBlock Text="Программа автоматизации гостиничных номеров: бронирование, заселение и выселение, расчёт стоимости, оплата и отчётность."
+                           Foreground="#A9B6CC" FontSize="12.5"
+                           Margin="0,12,0,0" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Форма входа -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="40,0,40,0">
+            <TextBlock Text="Вход в систему" Style="{StaticResource Title}"/>
+            <TextBlock Text="Введите логин и пароль сотрудника" Style="{StaticResource Subtitle}" Margin="0,4,0,0"/>
+
+            <TextBlock Text="Логин" Style="{StaticResource FieldLabel}"/>
+            <TextBox x:Name="LoginBox" Style="{StaticResource Input}"
+                     Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Пароль" Style="{StaticResource FieldLabel}"/>
+            <PasswordBox x:Name="PasswordInput" Padding="8,6" FontSize="13"
+                         BorderBrush="{StaticResource Brush.Border}"
+                         VerticalContentAlignment="Center"
+                         KeyDown="OnPasswordKeyDown"/>
+
+            <TextBlock Text="{Binding Error}" Foreground="{StaticResource Brush.Danger}"
+                       FontSize="12.5" Margin="0,12,0,0" TextWrapping="Wrap"/>
+
+            <Button Content="Войти" Style="{StaticResource PrimaryButton}"
+                    Padding="30,10" Margin="0,18,0,0" HorizontalAlignment="Left"
+                    Click="OnLoginClick"/>
+
+            <Border Style="{StaticResource Card}" Margin="0,26,0,0" Padding="14">
+                <StackPanel>
+                    <TextBlock Text="Тестовые учётные записи" FontSize="12"
+                               FontWeight="SemiBold" Foreground="{StaticResource Brush.Muted}"/>
+                    <TextBlock Text="admin / admin123 — администратор" FontSize="12"
+                               Foreground="{StaticResource Brush.Muted}" Margin="0,6,0,0"/>
+                    <TextBlock Text="manager / manager123 — менеджер" FontSize="12"
+                               Foreground="{StaticResource Brush.Muted}" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

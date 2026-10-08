@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Сборка проекта",
+			"type": "shell",
+			"command": "dotnet build",
+			"problemMatcher": [
+				"$msbuild"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Проверка запуска приложения",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-Command",
+				"$exe = (Get-ChildItem \"$PWD\\*\\bin\\Debug\\net10.0-windows\\*.exe\" | Select-Object -First 1).FullName; $p = Start-Process $exe -PassThru; Start-Sleep -Seconds 5; $p.Refresh(); $alive = -not $p.HasExited; $title = $p.MainWindowTitle; if ($alive) { $p.Kill() }; Write-Output (\"alive=\" + $alive); Write-Output (\"title=\" + $title)"
+			],
+			"group": "none"
+		},
+		{
+			"label": "Проверка окна входа",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-Command",
+				"$exe = (Get-ChildItem \"$PWD\\*\\bin\\Debug\\net10.0-windows\\*.exe\" | Select-Object -First 1).FullName; $p = Start-Process $exe -PassThru; Start-Sleep -Seconds 5; $p.Refresh(); Write-Output $p.HasExited; Write-Output $p.MainWindowTitle; if (-not $p.HasExited) { $p.Kill() }"
+			],
+			"group": "none"
+		},
+		{
+			"label": "Пересоздать БД и проверить запуск",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".vscode\\fix-and-check.ps1"
+			],
+			"group": "none"
+		}
+	]
+}

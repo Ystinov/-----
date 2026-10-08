@@ -1,11 +1,3 @@
-﻿namespace ПАБГН
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-            Console.WriteLine("");
-        }
-    }
-}
+﻿// Файл оставлен пустым: точка входа генерируется автоматически из App.xaml (WPF).
+// Программа автоматизации гостиничных номеров — курсовой проект.
+// Весь код приложения разложен по папкам Models / Data / Services / Infrastructure.

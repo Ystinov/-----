@@ -1,0 +1,64 @@
+<Window x:Class="ПАБГН.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Автоматизация гостиничных номеров"
+        Height="780" Width="1320" MinHeight="620" MinWidth="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource Brush.Background}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ═════ Боковое меню ═════ -->
+        <Border Grid.Column="0" Background="{StaticResource Brush.Side}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="18,22,18,6">
+                    <TextBlock Text="🏨 Гостиница" Foreground="White"
+                               FontSize="18" FontWeight="SemiBold"/>
+                    <TextBlock Text="Автоматизация бронирования" Foreground="#94A3B8"
+                               FontSize="11.5" Margin="0,4,0,0" TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <!-- Пользователь и выход -->
+                <Border DockPanel.Dock="Bottom" Background="#182338">
+                    <StackPanel Margin="18,14">
+                        <TextBlock Text="{Binding UserName}" Foreground="White"
+                                   FontSize="13.5" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding UserRoleText}" Foreground="#94A3B8"
+                                   FontSize="11.5" Margin="0,2,0,10"/>
+                        <Button Content="Выйти из системы" Style="{StaticResource SecondaryButton}"
+                                HorizontalAlignment="Left" Command="{Binding LogoutCommand}"/>
+                    </StackPanel>
+                </Border>
+
+                <ListBox ItemsSource="{Binding Items}"
+                         SelectedItem="{Binding SelectedItem}"
+                         Style="{StaticResource NavList}"
+                         ItemContainerStyle="{StaticResource NavItem}"
+                         Margin="0,12,0,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Icon}" Width="28" FontSize="14"/>
+                                <TextBlock Text="{Binding Title}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+        <!-- ═════ Рабочая область ═════ -->
+        <DockPanel Grid.Column="1">
+            <Border DockPanel.Dock="Top" Background="White" Padding="20,14"
+                    BorderBrush="{StaticResource Brush.Border}" BorderThickness="0,0,0,1">
+                <TextBlock Text="{Binding SelectedItem.Title}" FontSize="16"
+                           FontWeight="SemiBold" Foreground="{StaticResource Brush.Text}"/>
+            </Border>
+
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ПАБГН")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17e921310d3d708d7a5cb46267c5392f312768e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92db2f0837a9a5968557c1f776c7eeefbc9bc6d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ПАБГН")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ПАБГН")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

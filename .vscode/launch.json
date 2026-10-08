@@ -1,0 +1,28 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Отладка приложения (WPF)",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "Сборка проекта",
+			"program": "${workspaceFolder}/ПАБГН/bin/Debug/net10.0-windows/ПАБГН.dll",
+			"args": [],
+			"cwd": "${workspaceFolder}/ПАБГН",
+			"console": "internalConsole",
+			"stopAtEntry": false
+		},
+		{
+			"name": "Запуск без отладки (WPF)",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "Сборка проекта",
+			"program": "${workspaceFolder}/ПАБГН/bin/Debug/net10.0-windows/ПАБГН.dll",
+			"args": [],
+			"cwd": "${workspaceFolder}/ПАБГН",
+			"console": "internalConsole",
+			"stopAtEntry": false,
+			"noDebug": true
+		}
+	]
+}

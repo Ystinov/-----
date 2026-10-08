@@ -12,3 +12,4 @@ C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\П�
 C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.pdb
 C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.genruntimeconfig.cache
 C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ref\ПАБГН.dll
+C:\Users\admin\Desktop\Университет\Курсач КПО\ПАБГН\ПАБГН\obj\Debug\net10.0\ПАБГН.sourcelink.json
