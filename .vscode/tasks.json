@@ -42,6 +42,19 @@
 				".vscode\\fix-and-check.ps1"
 			],
 			"group": "none"
+		},
+		{
+			"label": "Пересоздать БД и проверить роли",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".vscode\\reset-db-and-check.ps1"
+			],
+			"group": "none"
 		}
 	]
 }

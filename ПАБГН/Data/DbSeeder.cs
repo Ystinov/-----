@@ -51,17 +51,24 @@ public static class DbSeeder
         db.Users.AddRange(
             new User
             {
-                Login = "admin",
-                PasswordHash = PasswordHasher.Hash("admin123"),
-                FullName = "Иванова А.А.",
-                Role = UserRole.Administrator
+                Login = "manager",
+                PasswordHash = PasswordHasher.Hash("manager123"),
+                FullName = "Соколова М.В.",
+                Role = UserRole.Manager
             },
             new User
             {
-                Login = "manager",
-                PasswordHash = PasswordHasher.Hash("manager123"),
+                Login = "reception",
+                PasswordHash = PasswordHasher.Hash("reception123"),
                 FullName = "Петров П.П.",
-                Role = UserRole.Manager
+                Role = UserRole.Receptionist
+            },
+            new User
+            {
+                Login = "housekeeper",
+                PasswordHash = PasswordHasher.Hash("housekeeper123"),
+                FullName = "Сидорова Л.И.",
+                Role = UserRole.Housekeeper
             });
 
         db.SaveChanges();

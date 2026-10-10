@@ -37,9 +37,7 @@ public class EnumDisplayConverter : IValueConverter
         PaymentStatus.Partial => "Частично оплачено",
         PaymentStatus.Paid => "Оплачено",
 
-        UserRole.Administrator => "Администратор",
-        UserRole.Manager => "Менеджер",
-        UserRole.Housekeeper => "Горничная",
+        UserRole role => UserRights.Title(role),
 
         _ => value.ToString() ?? string.Empty
     };

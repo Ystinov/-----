@@ -51,9 +51,11 @@
                 <StackPanel>
                     <TextBlock Text="Тестовые учётные записи" FontSize="12"
                                FontWeight="SemiBold" Foreground="{StaticResource Brush.Muted}"/>
-                    <TextBlock Text="admin / admin123 — администратор" FontSize="12"
+                    <TextBlock Text="manager / manager123 — управляющий гостиницей" FontSize="12"
                                Foreground="{StaticResource Brush.Muted}" Margin="0,6,0,0"/>
-                    <TextBlock Text="manager / manager123 — менеджер" FontSize="12"
+                    <TextBlock Text="reception / reception123 — администратор СПиР" FontSize="12"
+                               Foreground="{StaticResource Brush.Muted}" Margin="0,2,0,0"/>
+                    <TextBlock Text="housekeeper / housekeeper123 — горничная" FontSize="12"
                                Foreground="{StaticResource Brush.Muted}" Margin="0,2,0,0"/>
                 </StackPanel>
             </Border>

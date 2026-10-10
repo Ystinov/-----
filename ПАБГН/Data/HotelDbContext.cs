@@ -59,6 +59,6 @@ public class HotelDbContext(DbContextOptions<HotelDbContext> options) : DbContex
         // Вычисляемые свойства не являются колонками БД
         mb.Entity<Booking>().Ignore(b => b.Nights).Ignore(b => b.Debt).Ignore(b => b.PaymentStatus);
         mb.Entity<BookingService>().Ignore(x => x.Total);
-        mb.Entity<User>().Ignore(u => u.IsAdministrator);
+        mb.Entity<User>().Ignore(u => u.IsManager);
     }
 }

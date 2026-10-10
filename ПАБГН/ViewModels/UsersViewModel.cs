@@ -92,7 +92,7 @@ public class UsersViewModel : ViewModelBase, IRefreshable
 
     public void Refresh()
     {
-        if (_auth.CurrentUser?.IsAdministrator != true)
+        if (_auth.CurrentUser?.IsManager != true)
             return;
 
         var selectedId = SelectedUser?.Id;
@@ -135,7 +135,7 @@ public class UsersViewModel : ViewModelBase, IRefreshable
 
         bool ok = _dialogs.TryRun(() =>
         {
-            _auth.RequireAdministrator();
+            _auth.RequireManager();
             _users.Save(_editId, EditLogin, EditFullName, EditRole, EditIsActive, password);
         });
 
@@ -153,7 +153,7 @@ public class UsersViewModel : ViewModelBase, IRefreshable
 
         if (_dialogs.TryRun(() =>
             {
-                _auth.RequireAdministrator();
+                _auth.RequireManager();
                 _users.Delete(SelectedUser.Id);
             }))
         {

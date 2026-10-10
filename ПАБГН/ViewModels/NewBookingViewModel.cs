@@ -329,6 +329,8 @@ public class NewBookingViewModel : ViewModelBase, IRefreshable
 
         bool ok = _dialogs.TryRun(() =>
         {
+            _auth.RequireBookingStaff();
+
             var services = SelectedServices().Select(s => (ServiceId: s.Service.Id, Quantity: s.Quantity));
             created = _bookingManager.Create(SelectedRoom.Id, SelectedGuest.Id, _auth.CurrentUser.Id,
                                              _checkIn.Value, _checkOut.Value, GuestsCount, services, Comment);

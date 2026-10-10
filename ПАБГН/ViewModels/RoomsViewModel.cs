@@ -25,10 +25,13 @@ public class RoomsViewModel : ViewModelBase, IRefreshable
     private RoomStatus _editStatus = RoomStatus.Available;
     private string? _editNotes;
 
-    public RoomsViewModel(RoomService rooms, DialogService dialogs)
+    public RoomsViewModel(RoomService rooms, DialogService dialogs, AuthService auth)
     {
         _rooms = rooms;
         _dialogs = dialogs;
+
+        // Горничная и администратор видят таблицу, но не редактируют номерной фонд
+        CanEdit = UserRights.CanEditRooms(auth.CurrentUser?.Role ?? UserRole.Receptionist);
 
         Categories = _rooms.GetCategories();
         _editCategory = Categories.FirstOrDefault();
@@ -44,6 +47,9 @@ public class RoomsViewModel : ViewModelBase, IRefreshable
     public ObservableCollection<Room> Rooms { get; } = [];
 
     public List<RoomCategory> Categories { get; }
+
+    /// <summary>Доступна ли форма редактирования номера (только управляющий).</summary>
+    public bool CanEdit { get; }
 
     public IReadOnlyList<RoomStatus> Statuses { get; } = Enum.GetValues<RoomStatus>();
 

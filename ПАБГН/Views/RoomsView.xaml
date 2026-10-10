@@ -47,6 +47,8 @@
             <Border Grid.Column="1" Style="{StaticResource Card}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
+                        <!-- Форма редактирования доступна только управляющему гостиницей -->
+                        <StackPanel Visibility="{Binding CanEdit, Converter={StaticResource BoolToVis}}">
                         <TextBlock Text="{Binding FormTitle}" Style="{StaticResource SectionTitle}"/>
 
                         <TextBlock Text="Номер комнаты" Style="{StaticResource FieldLabel}"/>
@@ -87,8 +89,9 @@
                         </WrapPanel>
 
                         <Separator Margin="0,18,0,12"/>
+                        </StackPanel>
 
-                        <TextBlock Text="Быстрая смена статуса" Style="{StaticResource SectionTitle}" Margin="0"/>
+                        <TextBlock Text="Смена состояния номера" Style="{StaticResource SectionTitle}" Margin="0"/>
                         <TextBlock Text="Применяется к номеру, выбранному в таблице."
                                    Style="{StaticResource Subtitle}" Margin="0,4,0,0"/>
 

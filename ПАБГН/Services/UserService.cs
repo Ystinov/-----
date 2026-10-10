@@ -15,6 +15,8 @@ public class UserService(HotelDbContext db, AuthService auth)
     /// </summary>
     public void Save(int id, string login, string fullName, UserRole role, bool isActive, string? password)
     {
+        auth.RequireManager();
+
         login = login.Trim();
 
         if (string.IsNullOrWhiteSpace(login))
@@ -50,14 +52,16 @@ public class UserService(HotelDbContext db, AuthService auth)
 
     public void Delete(int id)
     {
+        auth.RequireManager();
+
         var user = db.Users.Find(id) ?? throw new DomainException("Пользователь не найден.");
 
         if (auth.CurrentUser?.Id == id)
             throw new DomainException("Нельзя удалить учётную запись, под которой выполнен вход.");
 
-        if (user.Role == UserRole.Administrator
-            && db.Users.Count(u => u.Role == UserRole.Administrator) <= 1)
-            throw new DomainException("В системе должен остаться хотя бы один администратор.");
+        if (user.Role == UserRole.Manager
+            && db.Users.Count(u => u.Role == UserRole.Manager) <= 1)
+            throw new DomainException("В системе должен остаться хотя бы один управляющий.");
 
         db.Users.Remove(user);
         db.SaveChanges();

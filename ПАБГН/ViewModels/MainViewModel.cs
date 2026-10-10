@@ -29,19 +29,32 @@ public class MainViewModel : ViewModelBase
     {
         _auth = auth;
 
-        Items =
-        [
-            new NavigationItem("Новая бронь", "➕", newBooking),
-            new NavigationItem("Брони", "📋", bookings),
-            new NavigationItem("Номера", "🛏", rooms),
-            new NavigationItem("Гости", "👤", guests),
-            new NavigationItem("Оплата", "💳", payments),
-            new NavigationItem("Услуги", "🍽", services),
-            new NavigationItem("Отчёты", "📊", reports)
-        ];
+        // Состав меню зависит от роли сотрудника (см. Infrastructure/UserRights.cs)
+        var role = auth.CurrentUser?.Role ?? UserRole.Receptionist;
 
-        // Раздел «Сотрудники» доступен только администратору
-        if (auth.CurrentUser?.IsAdministrator == true)
+        Items = [];
+
+        if (UserRights.CanWorkWithBookings(role))
+        {
+            Items.Add(new NavigationItem("Новая бронь", "➕", newBooking));
+            Items.Add(new NavigationItem("Брони", "📋", bookings));
+        }
+
+        Items.Add(new NavigationItem("Номера", "🛏", rooms));
+
+        if (UserRights.CanWorkWithGuests(role))
+        {
+            Items.Add(new NavigationItem("Гости", "👤", guests));
+            Items.Add(new NavigationItem("Оплата", "💳", payments));
+        }
+
+        if (UserRights.CanSeeReports(role))
+            Items.Add(new NavigationItem("Отчёты", "📊", reports));
+
+        if (UserRights.CanEditCatalogs(role))
+            Items.Add(new NavigationItem("Услуги", "🍽", services));
+
+        if (UserRights.CanManageUsers(role))
             Items.Add(new NavigationItem("Сотрудники", "👥", users));
 
         // Переходы между разделами по действиям пользователя
@@ -85,13 +98,9 @@ public class MainViewModel : ViewModelBase
 
     public string UserName => _auth.CurrentUser?.FullName ?? string.Empty;
 
-    public string UserRoleText => _auth.CurrentUser?.Role switch
-    {
-        UserRole.Administrator => "Администратор",
-        UserRole.Manager => "Менеджер",
-        UserRole.Housekeeper => "Горничная",
-        _ => string.Empty
-    };
+    public string UserRoleText => _auth.CurrentUser is null
+        ? string.Empty
+        : UserRights.Title(_auth.CurrentUser.Role);
 
     public ICommand LogoutCommand { get; }
 

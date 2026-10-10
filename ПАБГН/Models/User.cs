@@ -19,8 +19,8 @@ public class User
 
     public List<Booking> CreatedBookings { get; set; } = [];
 
-    /// <summary>Признак роли администратора.</summary>
-    public bool IsAdministrator => Role == UserRole.Administrator;
+    /// <summary>Признак полного доступа: управляющий гостиницей.</summary>
+    public bool IsManager => Role == UserRole.Manager;
 
     public override string ToString() => $"{FullName} ({Login})";
 }

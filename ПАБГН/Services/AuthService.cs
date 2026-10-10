@@ -23,10 +23,17 @@ public class AuthService(HotelDbContext db)
 
     public void Logout() => CurrentUser = null;
 
-    /// <summary>Проверка прав: действие доступно только администратору.</summary>
-    public void RequireAdministrator()
+    /// <summary>Проверка прав: действие доступно только управляющему гостиницей.</summary>
+    public void RequireManager()
     {
-        if (CurrentUser is null || !CurrentUser.IsAdministrator)
-            throw new DomainException("Недостаточно прав: требуется роль администратора.");
+        if (CurrentUser?.IsManager != true)
+            throw new DomainException("Недостаточно прав: действие доступно только управляющему гостиницей.");
+    }
+
+    /// <summary>Проверка прав: брони оформляют управляющий и администратор СПиР.</summary>
+    public void RequireBookingStaff()
+    {
+        if (CurrentUser is null || !UserRights.CanWorkWithBookings(CurrentUser.Role))
+            throw new DomainException("Недостаточно прав для работы с бронями.");
     }
 }
